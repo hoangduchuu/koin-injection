@@ -1,7 +1,27 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.3.10'
+    ext {
+        compile_sdk_version = 28
+        min_sdk_version = 21
+        target_sdk_version = 28
+
+        kotlin_version = '1.3.10'
+        kodein_version = '6.0.1'
+        constraint_layout_version = '1.1.3'
+        android_arch_components_version = '1.1.1'
+        arrow_version = '0.8.1'
+        coroutines_version = '1.0.1'
+        retrofit_version = '2.3.0'
+        moshi_version = '1.5.0'
+        gson_version = '2.8.2'
+        okhttp_version = '3.10.0'
+        picasso_version = '2.71828'
+        astl_version = '1.0.2'
+        espresso_version = '3.0.2'
+        mockito_kotlin = '1.5.0'
+        mockito_version = '2.8.9'
+    }
     repositories {
         google()
         jcenter()
@@ -19,7 +39,12 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven{ url 'https://jitpack.io'}
+        maven { url 'https://jitpack.io' }
+        maven { url "https://dl.bintray.com/kodein-framework/Kodein-DI" }
+        maven { url "https://dl.bintray.com/kodein-framework/Kodein-DI" }
+
+
+
     }
 }
 
