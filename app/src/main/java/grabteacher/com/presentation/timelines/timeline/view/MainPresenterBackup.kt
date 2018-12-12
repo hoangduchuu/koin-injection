@@ -18,15 +18,22 @@ class MainPresenterBackup(val view: MainContract.View,val firstUseCase: FirstUse
 
             override fun onComplete() {
                 ALog.e("$TAG complete firstUseCase")
+                view.callFragment()
+
+
             }
 
             override fun onNext(t: String) {
                 ALog.e("$TAG  onNext firstUseCase $t")
+                view.callFragment()
+
 
             }
 
             override fun onError(e: Throwable) {
                 ALog.e("$TAG  onError firstUseCase  ${e.localizedMessage}")
+                view.callFragment()
+
 
             }
         })
@@ -40,11 +47,13 @@ class MainPresenterBackup(val view: MainContract.View,val firstUseCase: FirstUse
 
             override fun onNext(t: List<String>) {
                 ALog.e("$TAG  onNext secondUseCase$t")
+                view.callFragment()
 
             }
 
             override fun onError(e: Throwable) {
                 ALog.e(" $TAG  onError secondUseCase ${e.localizedMessage}")
+                view.callFragment()
 
             }
         })

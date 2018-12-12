@@ -8,8 +8,8 @@ import io.reactivex.Observer
 /**
  * Created by Huu Hoang on 15/12/2018
  */
-class UserDataSourceFactory (val cache: UserDataSourceCache, val remote: UserDataSourceRemote) {
-    fun getUsers(): Observable<List<String>>{
+open class UserDataSourceFactory (val cache: UserDataSourceCache, val remote: UserDataSourceRemote) {
+    open fun getUsers(): Observable<List<String>>{
         return cache.getUsers()
                 .concatWith(remote.getUsers())
 

@@ -6,8 +6,8 @@ import io.reactivex.Observable
 /**
  * Created by Huu Hoang on 15/12/2018
  */
-class UserDataSourceCache {
-    fun getUsers(): Observable<List<String>>{
+open class UserDataSourceCache {
+  open  fun getUsers(): Observable<List<String>>{
         return Observable.just("HUU", "NAM").toList().toObservable()
     }
 }

@@ -10,7 +10,7 @@ import io.reactivex.observers.DisposableObserver
 /**
  * Created by Huu Hoang on 14/12/2018
  */
-class MainPresenter(val firstUseCase: FirstUseCase, val secondUseCase: SecondUseCase, val view: MainContract.View): MainContract.Presenter {
+open class MainPresenter(val firstUseCase: FirstUseCase, val secondUseCase: SecondUseCase, val view: MainContract.View): MainContract.Presenter {
 
 
     override fun firstPresenter() {
@@ -22,11 +22,14 @@ class MainPresenter(val firstUseCase: FirstUseCase, val secondUseCase: SecondUse
 
             override fun onNext(t: String) {
                 ALog.e(" onNext firstUseCase $t")
+                view.callFragment()
 
             }
 
             override fun onError(e: Throwable) {
                 ALog.e(" onError firstUseCase  ${e.localizedMessage}")
+                view.callFragment()
+
 
             }
         })
@@ -40,11 +43,15 @@ class MainPresenter(val firstUseCase: FirstUseCase, val secondUseCase: SecondUse
 
             override fun onNext(t: List<String>) {
                 ALog.e(" onNext secondUseCase$t")
+                view.callFragment()
+
 
             }
 
             override fun onError(e: Throwable) {
                 ALog.e(" onError secondUseCase ${e.localizedMessage}")
+                view.callFragment()
+
 
             }
         })
