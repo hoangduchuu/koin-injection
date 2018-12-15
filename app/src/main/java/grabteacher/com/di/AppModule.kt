@@ -1,6 +1,11 @@
 package grabteacher.com.di;
 
 import android.content.Context
+import androidx.annotation.UiThread
+import grabteacher.com.interactor.schedulers.PostExecutionThread
+import grabteacher.com.interactor.schedulers.ThreadExecutor
+import grabteacher.com.interactor.schedulers.impl.JobExecutor
+import grabteacher.com.interactor.schedulers.impl.UIThread
 import grabteacher.com.logger.AndroidLogger
 import grabteacher.com.logger.Logger
 import org.kodein.di.Kodein
@@ -16,4 +21,7 @@ fun AppModule(context: Context) = Kodein.Module("appModule"){
     bind<Context>() with provider { context }
     bind<Logger>() with singleton { AndroidLogger() }
 
+    // provide Threading
+    bind<ThreadExecutor>() with singleton { JobExecutor() }
+    bind<PostExecutionThread>() with singleton { UIThread() }
 }
