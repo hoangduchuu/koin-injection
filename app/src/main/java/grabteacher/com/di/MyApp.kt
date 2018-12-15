@@ -1,31 +1,29 @@
 package grabteacher.com.di;
 
 import android.app.Application
-import android.content.Context
-import grabteacher.com.di.AppModule
-import grabteacher.com.logger.Logger
+import androidx.annotation.VisibleForTesting
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
-import org.kodein.di.generic.instance
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
+
+
 
 /**
  * Created by Huu Hoang on 06/12/2018
  */
-class MyApp :Application(), KodeinAware {
+class MyApp : Application(), KodeinAware {
 
-    private val logger by instance<Logger>()
+    @VisibleForTesting
+    var overrideBindings: Kodein.MainBuilder.() -> Unit = {}
 
-
-    /**
-     * remember bem the `lazy`.
-     */
-    override var kodein =Kodein.lazy{
-
+    override val kodein = Kodein.lazy {
         import(AppModule(applicationContext))
     }
 
     override fun onCreate() {
         super.onCreate()
-        logger.log("MyTAG",message = "oncreate method")
+        Logger.addLogAdapter(AndroidLogAdapter())
+
     }
 }
