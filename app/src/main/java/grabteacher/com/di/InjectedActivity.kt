@@ -59,7 +59,7 @@ abstract class InjectedActivity: AppCompatActivity(), KodeinAware {
     /**
      * Optional to override, if your activity needs specific DI.
      */
-    open fun activityModule() = Kodein.Module {
+    open fun activityModule() = Kodein.Module("activityModule") {
     }
 
     // endregion
