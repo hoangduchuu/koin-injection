@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_narrow">8dp</dimen>
+    <dimen name="margin_tiny">5dp</dimen>
+    <dimen name="margin_wide">24dp</dimen>
+    <dimen name="margin_xwide">32dp</dimen>
+
+    <dimen name="textSize_medium">16sp</dimen>
+    <dimen name="textSize_large">21sp</dimen>
+    <dimen name="textSize_xlarge">26sp</dimen>
+    <dimen name="textSize_xxlarge">32sp</dimen>
+    <dimen name="textSize_small">10sp</dimen>
+    <dimen name="textSize_verySmall">8sp</dimen>
+
+    <dimen name="textbox_height">45dp</dimen>
+    <dimen name="recyclerView_dividerHeight">3dp</dimen>
+
+    <dimen name="profile_image_height">120dp</dimen>
+    <dimen name="profile_image_width">120</dimen>
+</resources>
