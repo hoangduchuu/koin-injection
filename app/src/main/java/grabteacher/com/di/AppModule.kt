@@ -21,6 +21,8 @@ fun AppModule(context: Context) = Kodein.Module("appModule"){
     bind<Context>() with provider { context }
     bind<Logger>() with singleton { AndroidLogger() }
 
+    import(dataModule())
+
     // provide Threading
     bind<ThreadExecutor>() with singleton { JobExecutor() }
     bind<PostExecutionThread>() with singleton { UIThread() }
