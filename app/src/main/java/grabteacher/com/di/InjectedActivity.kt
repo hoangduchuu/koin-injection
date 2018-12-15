@@ -44,6 +44,10 @@ abstract class InjectedActivity: AppCompatActivity(), KodeinAware {
     // closestKodein() automatically fetches app Kodein scope.
     private val appKodein by closestKodein()
 
+
+    /**
+     *   @kodein :is our ActivityScope
+     */
     override val kodein: Kodein by retainedKodein {
         extend(appKodein)
         import(baseActivityModule(this@InjectedActivity), allowOverride = true)
