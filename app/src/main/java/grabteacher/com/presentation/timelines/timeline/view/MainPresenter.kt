@@ -10,7 +10,8 @@ import io.reactivex.observers.DisposableObserver
 /**
  * Created by Huu Hoang on 14/12/2018
  */
-class MainPresenter(val firstUseCase: FirstUseCase, val secondUseCase: SecondUseCase): MainContract.Presenter {
+class MainPresenter(val firstUseCase: FirstUseCase, val secondUseCase: SecondUseCase, val view: MainContract.View): MainContract.Presenter {
+
 
     override fun firstPresenter() {
         firstUseCase.run("bla ble", object : DisposableObserver<String>(){
@@ -34,6 +35,7 @@ class MainPresenter(val firstUseCase: FirstUseCase, val secondUseCase: SecondUse
 
             override fun onComplete() {
                 ALog.e(" complete secondUseCase")
+                view.callFragment()
             }
 
             override fun onNext(t: List<String>) {
