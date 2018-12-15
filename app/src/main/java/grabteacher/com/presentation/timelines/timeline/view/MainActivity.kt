@@ -10,7 +10,8 @@ import org.kodein.di.generic.instance
 class MainActivity : InjectedActivity() {
     //region VARIABLE region
 
-    private val presenter by instance<MainContract.Presenter>()
+    private val presenter by instance<MainContract.Presenter>("production")
+    private val presenter2 by instance<MainContract.Presenter>("backup")
 
     // endregion
 
@@ -20,7 +21,7 @@ class MainActivity : InjectedActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        presenter.firstPresenter()
+        getMainPresenter().firstPresenter()
     }
 
     // endregion
@@ -33,5 +34,12 @@ class MainActivity : InjectedActivity() {
     // endregion
 
 
+    fun getMainPresenter(): MainContract.Presenter{
+        return if (!true){
+            presenter
+        }else{
+            presenter2
+        }
+    }
 
 }
