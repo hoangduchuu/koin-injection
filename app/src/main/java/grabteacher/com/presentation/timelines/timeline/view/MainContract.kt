@@ -9,7 +9,7 @@ import grabteacher.com.base.BaseView
  */
 interface MainContract {
     interface View: BaseView {
-
+        fun callFragment()
     }
 
     interface Presenter{
