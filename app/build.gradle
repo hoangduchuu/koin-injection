@@ -44,4 +44,23 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
 
+
+
+    //test
+
+    // test
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation "com.android.support.test:runner:$astl_version"
+    androidTestImplementation "com.android.support.test:rules:$astl_version"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espresso_version"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espresso_version"
+    androidTestImplementation "com.android.support.test:runner:$astl_version"
+    androidTestImplementation "com.nhaarman:mockito-kotlin:$mockito_kotlin"
+    androidTestImplementation "org.mockito:mockito-core:$mockito_version"
+    androidTestImplementation "org.mockito:mockito-android:$mockito_version"
+    androidTestImplementation 'com.github.tmurakami:dexopener:1.0.2'
+
+    testImplementation "com.nhaarman:mockito-kotlin:$mockito_kotlin"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
 }
