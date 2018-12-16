@@ -14,7 +14,7 @@ import org.kodein.di.generic.singleton
 /**
  * Created by Huu Hoang on 14/12/2018
  */
-fun mainModule() = Kodein.Module("MainActivityModuleDI") {
+fun mainModule(view: MainContract.View) = Kodein.Module("MainActivityModuleDI") {
     bind<MainContract.Presenter>(tag = "production") with singleton { MainPresenter(instance(), instance(),instance()) }
     bind<MainContract.Presenter>(tag = "backup") with singleton { MainPresenterBackup(instance(), instance(),instance()) }
 
@@ -23,6 +23,6 @@ fun mainModule() = Kodein.Module("MainActivityModuleDI") {
 
 
 
-    bind<MainContract.View>() with singleton { MainActivity() }
+    bind<MainContract.View>() with singleton { view }
 
 }
