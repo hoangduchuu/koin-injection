@@ -15,6 +15,7 @@ class MainActivity : InjectedActivity(), MainContract.View {
 
      var ft :FragmentTransaction =  supportFragmentManager.beginTransaction()
 
+    val thisView = this
 
     private val presenter by instance<MainContract.Presenter>("production")
     private val presenter2 by instance<MainContract.Presenter>("backup")
@@ -36,13 +37,13 @@ class MainActivity : InjectedActivity(), MainContract.View {
     //region DI region
 
     override fun activityModule() = Kodein.Module("mainModule") {
-        import(mainModule())
+        import(mainModule(thisView))
     }
     // endregion
 
 
     fun getMainPresenter(): MainContract.Presenter{
-        return if (!true){
+        return if (true){
             presenter
         }else{
             presenter2
@@ -57,11 +58,8 @@ class MainActivity : InjectedActivity(), MainContract.View {
     }
 
     override fun callFragment() {
-        runOnUiThread {
             loadDescriptionFragment()
 
-        }
-        ALog.e("calling the fragment")
     }
 
 }
