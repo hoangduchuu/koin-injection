@@ -10,7 +10,7 @@ import io.reactivex.observers.DisposableObserver
 /**
  * Created by Huu Hoang on 14/12/2018
  */
-class MainPresenterBackup(val firstUseCase: FirstUseCase, val secondUseCase: SecondUseCase): MainContract.Presenter {
+class MainPresenterBackup(val view: MainContract.View,val firstUseCase: FirstUseCase, val secondUseCase: SecondUseCase): MainContract.Presenter {
 
     val TAG = "MainPresenterBackup"
     override fun firstPresenter() {
@@ -35,6 +35,7 @@ class MainPresenterBackup(val firstUseCase: FirstUseCase, val secondUseCase: Sec
 
             override fun onComplete() {
                 ALog.e("$TAG  complete secondUseCase")
+                view.callFragment()
             }
 
             override fun onNext(t: List<String>) {
